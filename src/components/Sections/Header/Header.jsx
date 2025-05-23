@@ -14,10 +14,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "backdrop-blur-md" : "backdrop-blur-none"
-      }`}
-    >
+  className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+    isScrolled ? "backdrop-blur-md" : "backdrop-blur-none"
+  }`}
+>
       <div className="container mx-auto px-6 py-4 flex justify-center">
         {/* Navigation Links */}
         <nav className="flex space-x-8">
