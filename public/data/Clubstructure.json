@@ -1,0 +1,38 @@
+{
+  "presidents": [
+    {
+      "name": "Mohamed elamin Bouchahed",
+      "term": "2014-2016"
+    },
+    {
+      "name": "Legrini Yehya",
+      "term": "2016-2022"
+    },
+    {
+      "name": "Himed Islam",
+      "term": "2022-present"
+    }
+  ],
+  "teams": {
+    "courses": {
+      "description": "Handles educational content and manages course planning for members.",
+      "members": ["achwak"," yehya","Raid "]
+    },
+    "events management": {
+      "description": "Organizes all club events, from planning to execution.",
+      "members": ["salah ","wassim "]
+    },
+    "external relations": {
+      "description": "Builds relationships with partners, sponsors, and other clubs.",
+      "members": ["malak ","moncef"]
+    },
+    "internal relations": {
+      "description": "Ensures smooth internal communication and team coordination.",
+      "members": ["salsabil ","nidal ","khaled ","wissal "]
+    },
+    "social media": {
+      "description": "Manages club's online presence and social media content.",
+      "members": ["warda ","kounouz "]
+    }
+  }
+}
