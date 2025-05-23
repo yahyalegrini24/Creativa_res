@@ -114,3 +114,14 @@ button:hover::before {
 .book-container.flip .book-page {
   transform: rotateY(-180deg);
 }
+:root {
+  --header-height: 64px;
+  --footer-height: 80px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 56px;
+    --footer-height: 72px;
+  }
+}
