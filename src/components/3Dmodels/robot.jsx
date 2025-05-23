@@ -15,7 +15,7 @@ export default function Robot({ isAnimating, isSpeaking, isSpinning, position = 
     const center = box.getCenter(new THREE.Vector3());
     const size = box.getSize(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z);
-    const desiredScale = 23 / maxDim;
+    const desiredScale = 20 / maxDim;
     return { center, modelScale: desiredScale };
   }, [robot.scene]);
 
