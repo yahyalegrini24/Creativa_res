@@ -16,7 +16,7 @@ const HeroSection = () => {
         <img
           src="/images/logo.png"
           alt="Creativa Logo"
-          className="w-24 sm:w-32 mb-4 sm:mb-6 drop-shadow-xl"
+          className="w-full max-w-[300px] mx-auto drop-shadow-xl"
         />
 
         {/* Heading with Typewriter */}
