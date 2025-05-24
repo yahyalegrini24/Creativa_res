@@ -94,9 +94,9 @@ export default function Aichat() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-4 relative">
+    <div className="flex flex-col items-center min-h-screen p-4 ">
       {/* 3D Model Canvas with Response Area */}
-      <div className="w-full h-[85vh] mb-4 flex flex-col items-center justify-center relative">
+      <div className="w-full h-[70vh] sm:h-[75vh] md:h-[80vh] lg:h-[85vh] mb-4 flex flex-col items-center justify-center relative">
         {/* Response Bubble - Centered above robot */}
         <AnimatePresence>
           {currentResponse && (
@@ -106,20 +106,20 @@ export default function Aichat() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ type: 'spring', damping: 10, stiffness: 100 }}
-              className="absolute top-[20%] z-10 w-full max-w-md px-4  "
+              className="absolute top-[10%] sm:top-[15%] md:top-[20%] z-10 w-full max-w-xs sm:max-w-sm md:max-w-md px-4"
             >
-              <div className="bg-transparent backdrop-blur-sm rounded-xl p-4 shadow-2xl border border-white/20 transform transition-all duration-300 hover:scale-[1.02]">
-                <div className="flex items-start gap-3">
-                  <div className="bg-blue-500 p-2 rounded-full text-white">
-                    <FaRobot className="text-lg" />
+              <div className="transparent backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-2xl border border-white/20 transform transition-all duration-300 hover:scale-[1.02]">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="bg-blue-500 p-1 sm:p-2 rounded-full text-white">
+                    <FaRobot className="text-sm sm:text-base" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-gray-800 font-medium text-sm sm:text-base">
+                    <p className="text-gray-800 font-medium text-xs sm:text-sm md:text-base">
                       {currentResponse}
                     </p>
                     {isSpeaking && (
                       <motion.div 
-                        className="flex items-center gap-2 mt-2 text-blue-500 text-xs "
+                        className="flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 text-blue-500 text-xs"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                       >
@@ -147,7 +147,12 @@ export default function Aichat() {
             near: 0.1, 
             far: 1000 
           }}
-          style={{ width: '100%', height: '100%', touchAction: 'none' }}
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            touchAction: 'none',
+            maxHeight: 'calc(100vh - 150px)' // Prevent canvas from being too tall
+          }}
         >
           <ambientLight intensity={1.5} />
           <directionalLight position={[5, 5, 5]} intensity={2} />
@@ -156,19 +161,21 @@ export default function Aichat() {
             isSpeaking={isSpeaking} 
             isSpinning={isSpinning} 
             position={[0, 0, 0]}
-            scale={window.innerWidth < 768 ? 0.8 : 1}
+            scale={window.innerWidth < 640 ? 0.7 : window.innerWidth < 768 ? 0.8 : 1}
           />
           <OrbitControls 
             enableZoom={false}
             enablePan={false}
             enableRotate={true}
             rotateSpeed={0.5}
+            minPolarAngle={Math.PI / 6}
+            maxPolarAngle={Math.PI / 2}
           />
         </Canvas>
       </div>
 
       {/* Input area */}
-      <div className="w-full max-w-md sticky bottom-4 left-0 right-0 mx-auto px-4 z-10">
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md fixed bottom-4 left-0 right-0 mx-auto px-4 z-10">
         <motion.div 
           className="flex gap-2 bg-white/90 p-2 rounded-lg shadow-xl backdrop-blur-sm border border-white/20"
           whileHover={{ scale: 1.01 }}
@@ -180,7 +187,7 @@ export default function Aichat() {
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Ask the robot anything..."
-            className="flex-1 p-2 bg-transparent border-none focus:outline-none text-black placeholder-gray-500"
+            className="flex-1 p-2 bg-transparent border-none focus:outline-none text-black placeholder-gray-500 text-sm sm:text-base"
           />
           <button
             onClick={handleSend}
@@ -190,11 +197,12 @@ export default function Aichat() {
                 : 'bg-blue-500 text-white hover:bg-blue-600'
             }`}
             disabled={isSpeaking}
+            aria-label="Send message"
           >
             {isSpeaking ? (
-              <ImSpinner2 className="h-5 w-5 animate-spin" />
+              <ImSpinner2 className="h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
             ) : (
-              <FaPaperPlane className="h-5 w-5" />
+              <FaPaperPlane className="h-4 w-4 sm:h-5 sm:w-5" />
             )}
           </button>
         </motion.div>

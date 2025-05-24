@@ -125,3 +125,8 @@ button:hover::before {
     --footer-height: 72px;
   }
 }
+.background {
+  background-image: url('/bg-mobile.jpg');
+  @media (min-width: 641px) { background-image: url('/bg-tablet.jpg'); }
+  @media (min-width: 1024px) { background-image: url('/bg-desktop.jpg'); }
+}
