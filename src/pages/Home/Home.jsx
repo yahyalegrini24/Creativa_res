@@ -48,7 +48,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xl xs:text-2xl sm:text-3xl font-semibold text-gray-300 mt-2 sm:mt-4 tracking-wide drop-shadow-lg"
+          className="text-xl xs:text-2xl sm:text-3xl font-semibold text-white-300 mt-2 sm:mt-4 tracking-wide drop-shadow-lg"
         >
           Don't limit your life between black and white.
         </motion.h2>
@@ -57,7 +57,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-3 sm:mt-5 text-base sm:text-lg text-blue-900 leading-relaxed font-medium tracking-normal max-w-md sm:max-w-xl md:max-w-2xl mx-auto"
+          className="mt-3 sm:mt-5 text-base sm:text-lg text-blue-900 leading-relaxed font-bold tracking-normal max-w-md sm:max-w-xl md:max-w-2xl mx-auto"
         >
           Join a community where passion meets creation.
         </motion.p>
